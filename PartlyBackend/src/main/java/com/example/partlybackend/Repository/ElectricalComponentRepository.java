@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ElectricalComponentRepository extends JpaRepository<ElectricalComponent, Integer> {
-    // Weitere Abfragemethoden hier definieren
+    // findAll(), findById(), save(), deleteById() kommen automatisch von JpaRepository
 }

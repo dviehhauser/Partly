@@ -17,6 +17,5 @@ public class ElectricalAssembly {
     private String assemblyName;
     private String description;
 
-    @OneToMany(mappedBy = "electricalAssembly") // Das "mappedBy" zeigt auf die "electricalAssembly" Eigenschaft in der ElectricalComponent Entität
-    private Set<ElectricalComponent> electricalComponents;
+
 }

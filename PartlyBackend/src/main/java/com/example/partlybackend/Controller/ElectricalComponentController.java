@@ -1,25 +1,41 @@
 package com.example.partlybackend.Controller;
-import com.example.partlybackend.Service.ElectricalAssemblyService;
-import com.example.partlybackend.Entity.*;
-import com.example.partlybackend.Service.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+
+import com.example.partlybackend.Entity.ElectricalComponent;
+import com.example.partlybackend.Service.ElectricalComponentService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
 @RequestMapping("/electricalComponents")
+@RequiredArgsConstructor
 public class ElectricalComponentController {
-    @Autowired
-    private ElectricalComponentService service;
+
+    private final ElectricalComponentService service;
 
     @GetMapping
     public List<ElectricalComponent> getAll() {
-        return service.getAllComponents(); // Korrekte Methode verwenden
+        return service.getAllComponents();
+    }
+    @PutMapping("/{id}")
+    public ElectricalComponent updateComponent(@PathVariable int id, @RequestBody ElectricalComponent updatedComponent) {
+        return service.updateComponent(id, updatedComponent);
     }
 
     @PostMapping
     public ElectricalComponent create(@RequestBody ElectricalComponent component) {
-        return service.saveComponent(component); // Korrekte Methode verwenden
+        return service.saveComponent(component);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable int id) {
+        service.deleteComponent(id);
+    }
+
+    @GetMapping("/{id}")
+    public ElectricalComponent getById(@PathVariable int id) {
+        return service.getComponentById(id)
+                .orElseThrow(() -> new RuntimeException("Component not found with id: " + id));
     }
 }
