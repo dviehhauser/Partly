@@ -29,4 +29,6 @@ public class ElectricalAssemblyService {
     public void deleteAssembly(int id) {
         repository.deleteById(id);
     }
+
+
 }

@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PositionRepository extends JpaRepository<Position, Integer> {
-    // Hier können zusätzliche Abfragemethoden definiert werden
 }

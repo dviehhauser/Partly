@@ -16,11 +16,11 @@ public class PositionController {
 
     @GetMapping
     public List<Position> getAll() {
-        return service.getAllPositions(); // Richtige Methode verwenden
+        return service.getAllPositions();
     }
 
     @PostMapping
     public Position create(@RequestBody Position position) {
-        return service.savePosition(position); // Richtige Methode verwenden
+        return service.savePosition(position);
     }
 }

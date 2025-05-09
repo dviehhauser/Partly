@@ -9,11 +9,6 @@ import jakarta.persistence.*;
 @Entity
 @Getter
 @Setter
-public class ShoppingList {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer list_id;
-
-    private String componentName;
+public class ShoppingList extends MainEntity{
     private Integer quantity;
 }

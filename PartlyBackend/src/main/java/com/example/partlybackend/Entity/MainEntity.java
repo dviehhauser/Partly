@@ -1,13 +1,12 @@
 package com.example.partlybackend.Entity;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
+@MappedSuperclass
 @Getter
 @Setter
-public class Supplier extends BaseEntity {
-
-    private String supplierName;
-    private Integer phoneNumber;
+public abstract class MainEntity extends BaseEntity {
+    protected String name;
 }

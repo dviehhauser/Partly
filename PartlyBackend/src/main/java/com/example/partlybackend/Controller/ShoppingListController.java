@@ -15,11 +15,11 @@ public class ShoppingListController {
 
     @GetMapping
     public List<ShoppingList> getAll() {
-        return service.getAllShoppingLists(); // Richtige Methode
+        return service.getAllShoppingLists();
     }
 
     @PostMapping
     public ShoppingList create(@RequestBody ShoppingList shoppingList) {
-        return service.saveShoppingList(shoppingList); // Richtige Methode
+        return service.saveShoppingList(shoppingList);
     }
 }

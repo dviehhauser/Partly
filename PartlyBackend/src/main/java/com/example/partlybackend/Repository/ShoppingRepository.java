@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface  ShoppingRepository extends JpaRepository<ShoppingList, Integer> {
-    // Eigene Abfragen können hier ergänzt werden
 }
