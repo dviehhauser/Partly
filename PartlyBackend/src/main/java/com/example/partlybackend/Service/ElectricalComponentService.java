@@ -33,11 +33,8 @@ public class ElectricalComponentService {
         ElectricalComponent existing = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Component not found with id: " + id));
 
-        existing.setComponent_name(updatedComponent.getComponent_name());
-        existing.setQuantity(updatedComponent.getQuantity());
-        existing.setDescription(updatedComponent.getDescription());
+        existing.setName(updatedComponent.getName());
 
         return repository.save(existing);
     }
-
 }

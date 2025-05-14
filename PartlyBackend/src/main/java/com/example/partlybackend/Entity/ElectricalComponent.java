@@ -12,9 +12,5 @@ import java.util.Set;
 @Getter
 @Setter
 public class ElectricalComponent extends MainEntity {
-    private String description;
 
-    @OneToMany(mappedBy = "component")
-    @JsonManagedReference("component-assembly")  // <- benannte Referenz
-    private Set<AssemblyComponent> assemblies;
 }

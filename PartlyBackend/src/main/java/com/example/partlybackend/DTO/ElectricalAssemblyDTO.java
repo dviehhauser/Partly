@@ -7,7 +7,8 @@ import java.util.List;
 @Getter
 @Setter
 public class ElectricalAssemblyDTO {
-    private String assemblyName;
+    private Integer id;
+    private String name;
     private String description;
     private List<ComponentQuantityDTO> components;
 }

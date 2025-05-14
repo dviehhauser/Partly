@@ -18,20 +18,13 @@ public class ElectricalComponentController {
     public List<ElectricalComponent> getAll() {
         return service.getAllComponents();
     }
-    @PutMapping("/{id}")
-    public ElectricalComponent updateComponent(@PathVariable int id, @RequestBody ElectricalComponent updatedComponent) {
-        return service.updateComponent(id, updatedComponent);
-    }
+
 
     @PostMapping
     public ElectricalComponent create(@RequestBody ElectricalComponent component) {
         return service.saveComponent(component);
     }
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable int id) {
-        service.deleteComponent(id);
-    }
 
     @GetMapping("/{id}")
     public ElectricalComponent getById(@PathVariable int id) {

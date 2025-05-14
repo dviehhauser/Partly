@@ -13,13 +13,16 @@ public class AssemblyComponent {
 
     @Id
     @ManyToOne
-    @JsonBackReference("assembly-component")  // <- passende Gegenreferenz
+    @JoinColumn(name = "assembly_id", nullable = false)
+    @JsonBackReference("assembly-component")
     private ElectricalAssembly assembly;
 
     @Id
     @ManyToOne
-    @JsonBackReference("component-assembly")  // <- passende Gegenreferenz
-    private ElectricalComponent component;
+    @JoinColumn(name = "component_id", nullable = false)
+    @JsonBackReference("component-assembly")
+    private Inventory component;
+
 
     private int quantity;
 }
