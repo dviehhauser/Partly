@@ -12,6 +12,7 @@ import java.util.Set;
 @Getter
 @Setter
 public class ElectricalAssembly extends MainEntity {
+    private Integer quantity;
     private String description;
 
     @OneToMany(mappedBy = "assembly", cascade = CascadeType.ALL, orphanRemoval = true)

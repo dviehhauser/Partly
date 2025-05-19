@@ -48,6 +48,7 @@ public class ElectricalAssemblyService {
         ElectricalAssemblyDTO dto = new ElectricalAssemblyDTO();
         dto.setId(entity.getId());
         dto.setName(entity.getName());
+        dto.setQuantity(entity.getQuantity());
         dto.setDescription(entity.getDescription());
 
         List<ComponentQuantityDTO> components = entity.getComponents().stream()
@@ -66,7 +67,7 @@ public class ElectricalAssemblyService {
         ElectricalAssembly newAssembly = new ElectricalAssembly();
         newAssembly.setName(dto.getName());
         newAssembly.setDescription(dto.getDescription());
-
+        newAssembly.setQuantity(dto.getQuantity());
         Set<AssemblyComponent> components = new HashSet<>();
 
         for (ComponentQuantityDTO compDto : dto.getComponents()) {

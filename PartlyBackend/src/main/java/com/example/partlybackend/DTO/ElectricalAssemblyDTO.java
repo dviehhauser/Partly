@@ -9,6 +9,7 @@ import java.util.List;
 public class ElectricalAssemblyDTO {
     private Integer id;
     private String name;
+    private Integer quantity;
     private String description;
     private List<ComponentQuantityDTO> components;
 }
