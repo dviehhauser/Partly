@@ -18,5 +18,4 @@ public class ElectricalAssembly extends MainEntity {
     @OneToMany(mappedBy = "assembly", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference("assembly-component")
     private Set<AssemblyComponent> components = new HashSet<>();
-
 }

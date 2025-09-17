@@ -35,4 +35,13 @@ public class ElectricalAssemblyController {
         ElectricalAssembly saved = service.createAssembly(dto);
         return ResponseEntity.ok(saved);
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<ElectricalAssembly> updateAssembly(
+            @PathVariable Integer id,
+            @RequestBody ElectricalAssemblyDTO dto) {
+
+        ElectricalAssembly updatedAssembly = service.updateAssembly(id, dto);
+        return ResponseEntity.ok(updatedAssembly);
+    }
+
 }

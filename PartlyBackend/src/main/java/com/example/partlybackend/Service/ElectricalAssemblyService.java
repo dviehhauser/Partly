@@ -30,18 +30,36 @@ public class ElectricalAssemblyService {
     public List<ElectricalAssembly> getAllAssemblies() {
         return repository.findAll();
     }
+    
 
-    public Optional<ElectricalAssembly> getAssemblyById(int id) {
-        return repository.findById(id);
+    public ElectricalAssembly updateAssembly(Integer id, ElectricalAssemblyDTO dto) {
+        ElectricalAssembly existingAssembly = repository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Assembly not found with id: " + id));
+
+        existingAssembly.setName(dto.getName());
+        existingAssembly.setDescription(dto.getDescription());
+        existingAssembly.setQuantity(dto.getQuantity());
+
+        existingAssembly.getComponents().clear();
+
+        Set<AssemblyComponent> newComponents = dto.getComponents().stream()
+                .map(compDto -> {
+                    Inventory inventory = entityManager.find(Inventory.class, compDto.getComponentId());
+
+                    AssemblyComponent component = new AssemblyComponent();
+                    component.setComponent(inventory);
+                    component.setAssembly(existingAssembly);
+                    component.setQuantity(compDto.getQuantity());
+
+                    return component;
+                }).collect(Collectors.toSet());
+
+        existingAssembly.getComponents().addAll(newComponents);
+
+        return repository.save(existingAssembly);
     }
 
-    public ElectricalAssembly saveAssembly(ElectricalAssembly assembly) {
-        return repository.save(assembly);
-    }
 
-    public void deleteAssembly(int id) {
-        repository.deleteById(id);
-    }
 
 
     public ElectricalAssemblyDTO convertToDTO(ElectricalAssembly entity) {
